@@ -1,0 +1,44 @@
+---
+# tasks file for nginx-
+# - name: uninstll broken package if exists
+#   yum:
+#     name: epel-release
+#     state: absent
+
+- name: Install latest epel-release
+  yum:
+    name: epel-release
+    state: installed
+
+
+- name: install the latest version of Nginx
+  yum:
+    name: nginx
+    state: installed
+
+- name: "Adding Custom Nginx Config"
+  template:
+    src: "nginx.conf.j2"
+    dest: "/etc/nginx/nginx.conf"
+    mode: 0655
+    backup: yes
+  notify:
+    - restart nginx
+
+- name: Verify nginx service is up and enable on boot
+  service:
+    name: nginx
+    state: started
+    enabled: yes
+
+
+- name: "Deploy Custom Web Site"
+  template:
+    src: "nginx-custom.j2"
+    dest: "{{siteroot}}/index.html"
+    mode: 0655
+    backup: yes
+  notify:
+    - restart nginx
+  tags:
+    - deploy
