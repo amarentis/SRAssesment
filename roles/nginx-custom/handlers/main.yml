@@ -1,2 +1,10 @@
 ---
 # handlers file for nginx-custom
+
+- name: restart nginx
+  systemd:
+    name: nginx
+    state: restarted
+    enabled: yes
+  listen: nginx changed
+  become: yes

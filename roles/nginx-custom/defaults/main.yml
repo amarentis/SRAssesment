@@ -1,4 +1,3 @@
 ---
 # defaults file for nginx-custom
-siteroot: ""
-sitecontent: ""
+siteroot: "/usr/share/nginx/html"

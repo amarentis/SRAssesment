@@ -1,6 +1,6 @@
 galaxy_info:
   author: Andrew Marentis
-  description: Example Repo of custom Nginx Install
+  description: Example Playbook Of Custom Nginx Install
   company: N/A
 
   # If the issue tracker for your role is not on github, uncomment the
