@@ -7,3 +7,15 @@
 
 # .tfvars files
 *.tfvars
+
+# .pyc
+*.pyc
+
+# .vagrant
+**/.vagrant/*
+
+# .molecule
+**/.molecule/*
+
+# pycache
+**/__pycache__/**

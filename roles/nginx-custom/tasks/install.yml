@@ -1,0 +1,24 @@
+---
+# tasks file for nginx-
+# - name: uninstll broken package if exists
+#   yum:
+#     name: epel-release
+#     state: absent
+
+- name: Install latest epel-release
+  yum:
+    name: epel-release
+    state: installed
+
+
+- name: install the latest version of Nginx
+  yum:
+    name: nginx
+    state: installed
+
+
+- name: Verify nginx service is up and enable on boot
+  service:
+    name: nginx
+    state: started
+    enabled: yes
